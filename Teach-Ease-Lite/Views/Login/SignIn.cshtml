@@ -1,0 +1,74 @@
+﻿@model Teach_Ease_Lite.Models.Login
+@{
+    ViewBag.Title = "SignIn";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    @using (Ajax.BeginForm("SignIn", "Login", null, new AjaxOptions { HttpMethod = "Post", OnBegin = "validateEmpty", OnSuccess = "onSaveResponse" }, new { id = "SignIn" }))
+    {
+        <div>
+            <div style="margin:10px;">
+                <div style="margin:10px;">
+                    @Html.TextBoxFor(m => m.EmailID, new { @class = "form-control", placeholder = "Email", autocomplete = "off" })
+                </div>
+                <div style="margin:10px;">
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password", @type = "password", autocomplete = "off" })
+                </div>
+                <div style="width:99%; text-align:right; font-size:12px;">
+                    <div style="float:left" class="p-2">
+                        <button class="main-btn" style="line-height:40px; padding:0 20px;">Login</button>
+                    </div>
+                    <div>
+                        <a href="javascript:void(0)" style="margin-right:5px;" onclick="">Forgot your password?</a>
+                    </div>
+                </div>
+            </div>
+            <div style="width:80%; text-align:center">
+                OR
+            </div>
+            <div style="margin:10px; text-align:center">
+                <button style="width:97%; background-color:#1877f2;" class="main-btn">
+                    <i class="fa fa-facebook-official" style="color:white; font-size:20px;"></i> &nbsp;
+                    <span style="color:white">Login with Facebook</span>
+                </button>
+            </div>
+            <div style="margin:10px; text-align:center">
+                <button style="width:97%; background-color:#ea4335" class="main-btn">
+                    <i class="fa fa-google-plus-square" aria-hidden="true" style="color:white; font-size:20px;"></i> &nbsp;
+                    <span style="color:white">Login with Google</span>
+                </button>
+            </div>
+            <div style="margin-top:30px;">
+                <div class="modal-footer bg-color-custom pt-2 pb-2">
+                    <div style="text-align:center; width:100%">
+                        Didn't have an account? &nbsp;<a href="javascript:void(0)" onclick="signUp()" class="link-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+<script type="text/javascript">
+    function signUp() {
+         $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("SignUp", "Login")',
+                data: { },
+                success: function (response) {
+                    if (response != null) {
+                        $("#headerTitleName").html("Sign Up");
+                        $("#divLoginPopupPageContent").html(response);
+                        $("#dialog-preview-login").modal('show');
+                    }
+                }
+            });
+    }
+</script>
