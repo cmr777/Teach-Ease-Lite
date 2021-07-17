@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ViewerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -239,6 +240,8 @@
     <Content Include="images\testimonial\t-3.jpg" />
     <Content Include="images\your-make\y-1.jpg" />
     <Content Include="js\ajax-contact.js" />
+    <Content Include="js\app\partial-render.js" />
+    <Content Include="js\app\ViewerJs\courseListPanel.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery.countdown.min.js" />
     <Content Include="js\jquery.counterup.min.js" />
@@ -284,6 +287,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Viewer\Index.cshtml" />
+    <Content Include="Views\Viewer\_PartialCourseListPanel.cshtml" />
+    <Content Include="Views\Viewer\_PartialCourseList.cshtml" />
+    <Content Include="Views\Viewer\_PartialCourseCategories.cshtml" />
+    <Content Include="Views\Viewer\_PartialCourseDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
