@@ -29,17 +29,20 @@
         </div>
         <div style="margin:10px;">
             <div style="margin:10px;">
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name", autocomplete = "off" })
+            </div>
+            <div style="margin:10px;">
                 @Html.TextBoxFor(m => m.EmailID, new { @class = "form-control", placeholder = "Email", autocomplete = "off" })
             </div>
             <div style="margin:10px;">
-                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password", @type = "password", autocomplete = "off" })
+                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Mobile", autocomplete = "off" })
             </div>
             <div style="width:99%; font-size:12px;" class="p-2">
                 <button class="main-btn" style="line-height:40px; padding:0 20px;">Sign Up</button>
             </div>
         </div>
         <div style="font-size:11px; margin:-10px 10px 0px 12px" class="p-2">
-            By clicking "Sign up" I am confirming I accept the <a target="blank" href="javascript:void(0)">Terms & Condition and Privacy Policy</a>
+            By signing up, I am confirming I accept the <a target="blank" href="javascript:void(0)">Terms & Condition and Privacy Policy</a>
         </div>
         <div style="margin-top:30px;">
             <div class="modal-footer bg-color-custom pt-2 pb-2">

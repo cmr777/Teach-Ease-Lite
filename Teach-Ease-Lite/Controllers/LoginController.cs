@@ -19,7 +19,7 @@ namespace Teach_Ease_Lite.Controllers
         [HttpPost]
         public ActionResult SignIn(Login objLogin)
         {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Viewer");
         }
 
         [HttpGet]
@@ -31,7 +31,19 @@ namespace Teach_Ease_Lite.Controllers
         [HttpPost]
         public ActionResult SignUp(Login objLogin)
         {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Viewer");
+        }
+
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(Login objLogin)
+        {
+            return RedirectToAction("Index", "Viewer");
         }
 
         [HttpGet]
@@ -39,5 +51,24 @@ namespace Teach_Ease_Lite.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult InstructorLogin(Login objLogin)
+        {
+            return RedirectToAction("Index", "Viewer");
+        }
+
+        [HttpGet]
+        public ActionResult InstructorSignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult InstructorSignUp(Login objLogin)
+        {
+            return RedirectToAction("Index", "Viewer");
+        }
+
     }
 }

@@ -296,6 +296,9 @@
     <Content Include="Views\Viewer\_PartialCourseList.cshtml" />
     <Content Include="Views\Viewer\_PartialCourseCategories.cshtml" />
     <Content Include="Views\Viewer\_PartialCourseDetail.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Views\Login\InstructorLogin.cshtml" />
+    <Content Include="Views\Login\InstructorSignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
