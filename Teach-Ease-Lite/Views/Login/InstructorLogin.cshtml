@@ -1,7 +1,8 @@
 ﻿@model Teach_Ease_Lite.Models.Login
 @{
-    ViewBag.Title = "SignIn";
+    ViewBag.Title = "InstructorLogin";
 }
+
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
 
 </head>
 <body>
-    @using (Ajax.BeginForm("SignIn", "Login", null, new AjaxOptions { HttpMethod = "Post", OnBegin = "validateEmpty", OnSuccess = "onSaveResponse" }, new { id = "SignIn" }))
+    @using (Ajax.BeginForm("InstructorLogin", "Login", null, new AjaxOptions { HttpMethod = "Post", OnBegin = "validateEmpty", OnSuccess = "onSaveResponse" }, new { id = "InstructorLogin" }))
     {
         <div>
             <div style="margin:10px;">
@@ -28,25 +29,10 @@
                     </div>
                 </div>
             </div>
-            <div style="width:80%; text-align:center">
-                OR
-            </div>
-            <div style="margin:10px; text-align:center">
-                <button style="width:97%; background-color:#1877f2;" class="main-btn">
-                    <i class="fa fa-facebook-official" style="color:white; font-size:20px;"></i> &nbsp;
-                    <span style="color:white">Login with Facebook</span>
-                </button>
-            </div>
-            <div style="margin:10px; text-align:center">
-                <button style="width:97%; background-color:#ea4335" class="main-btn">
-                    <i class="fa fa-google-plus-square" aria-hidden="true" style="color:white; font-size:20px;"></i> &nbsp;
-                    <span style="color:white">Login with Google</span>
-                </button>
-            </div>
-            <div style="margin-top:30px;">
+            <div style="margin-top:50px;">
                 <div class="modal-footer bg-color-custom pt-2 pb-2">
                     <div style="text-align:center; width:100%">
-                        Didn't have an account? &nbsp;<a href="javascript:void(0)" onclick="signUp()" class="link-primary">Sign Up</a>
+                        Didn't have an account? &nbsp;<a href="javascript:void(0)" onclick="InstructorSignUp()" class="link-primary">Sign Up</a>
                     </div>
                 </div>
             </div>
@@ -56,11 +42,11 @@
 </html>
 
 <script type="text/javascript">
-    function signUp() {
+    function InstructorSignUp() {
          $.ajax({
                 type: "GET",
                 contentType: "application/json; charset=utf-8",
-                url: '@Url.Action("SignUp", "Login")',
+                url: '@Url.Action("InstructorSignUp", "Login")',
                 data: { },
                 success: function (response) {
                     if (response != null) {

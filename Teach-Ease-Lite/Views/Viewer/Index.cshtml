@@ -111,7 +111,10 @@
                                 </div>
                             </div>
                             <div class="button float-left">
-                                <a href="#" class="main-btn">Apply Now</a>
+                                <a href="javascript:void(0)" class="main-btn" onclick="instructorLogin()">Instructor</a>
+                            </div>
+                            <div class="button float-left">
+                                <a href="javascript:void(0)" class="main-btn" onclick="signIn()">Sign In</a>
                             </div>
                         </div>
                     </div>
@@ -222,12 +225,11 @@
     <!--====== SEARCH BOX PART ENDS ======-->
     <!--====== SLIDER PART START ======-->
 
- <div id="divMainContent">
-     sadsa
- </div>
+    <div id="divMainContent">
+        sadsa
+    </div>
 
     <!--====== SLIDER PART ENDS ======-->
-   
     <!--====== FOOTER PART START ======-->
 
     <footer id="footer-part">
@@ -388,3 +390,52 @@
     </script>
 </body>
 </html>
+<div id="dialog-preview-login" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-full modal-dialog-large">
+        <div class="modal-content">
+            <div class="modal-header bg-color-custom pt-2 pb-2">
+                <h5 class="modal-title" id="headerTitleName"></h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            <div class="modal-body p-2">
+                <div id="divLoginPopupPageContent" style="overflow: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function signIn() {
+         $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("SignIn", "Login")',
+            data: { },
+            success: function (response) {
+                if (response != null) {
+                    $("#headerTitleName").html("Sign In");
+                    $("#divLoginPopupPageContent").html(response);
+                    $("#dialog-preview-login").modal('show');
+                }
+            }
+        });
+    }
+
+    function instructorLogin() {
+         $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("InstructorLogin", "Login")',
+            data: { },
+            success: function (response) {
+                if (response != null) {
+                    $("#headerTitleName").html("Sign In");
+                    $("#divLoginPopupPageContent").html(response);
+                    $("#dialog-preview-login").modal('show');
+                }
+            }
+        });
+    }
+</script>

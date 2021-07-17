@@ -1,0 +1,61 @@
+﻿@model Teach_Ease_Lite.Models.Login
+@{
+    ViewBag.Title = "InstructorSignUp";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    @using (Ajax.BeginForm("InstructorSignUp", "Login", null, new AjaxOptions { HttpMethod = "Post", OnBegin = "validateEmpty", OnSuccess = "onSaveResponse" }, new { id = "InstructorSignUp" }))
+    {
+        <div>
+            <div style="margin:10px;">
+                <div style="margin:10px;">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name", autocomplete = "off" })
+                </div>
+                <div style="margin:10px;">
+                    @Html.TextBoxFor(m => m.EmailID, new { @class = "form-control", placeholder = "Email", autocomplete = "off" })
+                </div>
+                <div style="margin:10px;">
+                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Mobile", autocomplete = "off" })
+                </div>
+                <div style="width:99%; font-size:12px;" class="p-2">
+                    <button class="main-btn" style="line-height:40px; padding:0 20px;">Sign Up</button>
+                </div>
+            </div>
+            <div style="font-size:11px; margin:-10px 10px 0px 12px" class="p-2">
+                By signing up, I am confirming I accept the <a target="blank" href="javascript:void(0)">Terms & Condition and Privacy Policy</a>
+            </div>
+            <div style="margin-top:30px;">
+                <div class="modal-footer bg-color-custom pt-2 pb-2">
+                    <div style="text-align:center; width:100%">
+                        Already have an account? &nbsp;<a href="javascript:void(0)" onclick="InstructorSignIn()" class="link-primary">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+
+<script type="text/javascript">
+    function InstructorSignIn() {
+         $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            url: '@Url.Action("InstructorLogin", "Login")',
+            data: { },
+            success: function (response) {
+                if (response != null) {
+                    $("#headerTitleName").html("Sign In");
+                    $("#divLoginPopupPageContent").html(response);
+                    $("#dialog-preview-login").modal('show');
+                }
+            }
+        });
+    }
+</script>
