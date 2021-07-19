@@ -197,6 +197,7 @@
                             <ul>
                                 <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
                                 <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+                                <li id="liUserAvatar"><a href="javascript:void(0)" onclick="ViewerUserProfile()"><img src="~/images/instructor/i-1.jpg" style="border-radius:50%; height:30px; width:30px;" /></a></li>
                             </ul>
                         </div> <!-- right icon -->
                     </div>
@@ -386,7 +387,9 @@
     <script src="~/js/map-script.js"></script>
     <script src="~/js/app/partial-render.js"></script>
     <script>
-        loadPage('divMainContent', 'CourseListPanel', '');
+        $(document).ready(function () {
+            loadPage('divMainContent', 'CourseListPanel', '');
+        });
     </script>
 </body>
 </html>
@@ -437,5 +440,9 @@
                 }
             }
         });
+    }
+
+    function ViewerUserProfile() {
+        loadPage('divMainContent', 'ViewerUserProfile', '');
     }
 </script>

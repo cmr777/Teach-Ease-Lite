@@ -12,29 +12,26 @@
 <body>
     @using (Ajax.BeginForm("InstructorLogin", "Login", null, new AjaxOptions { HttpMethod = "Post", OnBegin = "validateEmpty", OnSuccess = "onSaveResponse" }, new { id = "InstructorLogin" }))
     {
-        <div>
-            <div style="margin:10px;">
-                <div style="margin:10px;">
-                    @Html.TextBoxFor(m => m.EmailID, new { @class = "form-control", placeholder = "Email", autocomplete = "off" })
+        <div class="p-4">
+            <div class="row" style="margin-top:-20px;">
+                <div class="col-md-12 p-2">
+                    @Html.TextBoxFor(m => m.EmailID, new { @class = "form-control", placeholder = "Email", autocomplete = "off", MaxLength = "100" })
                 </div>
-                <div style="margin:10px;">
-                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password", @type = "password", autocomplete = "off" })
+                <div class="col-md-12 p-2">
+                    @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password", @type = "password", autocomplete = "off", MaxLength = "250" })
+                    <a class="eyeIconPassword"><i class="fa fa-eye iconPasword" style="color: #808080"></i></a>
                 </div>
-                <div style="width:99%; text-align:right; font-size:12px;">
-                    <div style="float:left" class="p-2">
-                        <button class="main-btn" style="line-height:40px; padding:0 20px;">Login</button>
-                    </div>
-                    <div>
-                        <a href="javascript:void(0)" style="margin-right:5px;" onclick="forgotPassword()">Forgot your password?</a>
-                    </div>
+                <div class="col-md-4 p-2" style="float:left; width:40%;">
+                    <button class="main-btn" style="line-height:40px; padding:0 20px;">Login</button>
+                </div>
+                <div class="col-md-8" style="text-align:right; width:60%">
+                    <a href="javascript:void(0)" style="font-size:12px;" onclick="forgotPassword()">Forgot your password?</a>
                 </div>
             </div>
-            <div style="margin-top:50px;">
-                <div class="modal-footer bg-color-custom pt-2 pb-2">
-                    <div style="text-align:center; width:100%">
-                        Didn't have an account? &nbsp;<a href="javascript:void(0)" onclick="InstructorSignUp()" class="link-primary">Sign Up</a>
-                    </div>
-                </div>
+        </div>
+        <div class="modal-footer bg-color-custom pt-2 pb-2">
+            <div style="text-align:center; width:100%">
+                Didn't have an account? &nbsp;<a href="javascript:void(0)" onclick="InstructorSignUp()" class="link-primary">Sign Up</a>
             </div>
         </div>
     }
@@ -73,4 +70,16 @@
                 }
             });
     }
+
+    $('.iconPasword').click(function show() {
+        if ($(this).hasClass('fa fa-eye')) {
+            $('#Password').attr('type', 'text');
+            $('.iconPasword').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+        }
+        else {
+            //Change the attribute back to password
+            $('#Password').attr('type', 'password');
+            $('.iconPasword').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+        }
+    });
 </script>

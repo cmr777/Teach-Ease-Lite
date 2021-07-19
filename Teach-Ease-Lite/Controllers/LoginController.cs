@@ -47,6 +47,18 @@ namespace Teach_Ease_Lite.Controllers
         }
 
         [HttpGet]
+        public ActionResult ResetPassword()
+        {
+            return View();        
+        }
+
+        [HttpPost]
+        public ActionResult ResetPassword(Login objLogin)
+        {
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult InstructorLogin()
         {
             return View();
