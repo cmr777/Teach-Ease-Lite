@@ -11,6 +11,10 @@
     {
         contentName: "CourseDetail", URL: "/Viewer/CourseDetail", BackContentName: "CourseListPanel", BackContentID: "divMainContent"
     }
+    ,
+    {
+        contentName: "ViewerUserProfile", URL: "/User/UserProfile", BackContentName: "CourseListPanel", BackContentID: "divMainContent"
+    }
 ];
 var backContentName = '';
 var backContentID = '';

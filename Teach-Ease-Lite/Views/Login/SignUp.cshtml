@@ -11,47 +11,48 @@
 <body>
     @using (Ajax.BeginForm("SignUp", "Login", null, new AjaxOptions { HttpMethod = "Post", OnBegin = "validateEmpty", OnSuccess = "onSaveResponse" }, new { id = "SignUp" }))
     {
-    <div>
-        <div style="margin:10px; text-align:center">
-            <button style="width:97%; background-color:#1877f2;" class="main-btn">
-                <i class="fa fa-facebook-official" style="color:white; font-size:20px;"></i> &nbsp;
-                <span style="color:white">Login with Facebook</span>
-            </button>
-        </div>
-        <div style="margin:10px; text-align:center">
-            <button style="width:97%; background-color:#ea4335" class="main-btn">
-                <i class="fa fa-google-plus-square" aria-hidden="true" style="color:white; font-size:20px;"></i> &nbsp;
-                <span style="color:white">Login with Google</span>
-            </button>
-        </div>
-        <div style="width:100%; text-align:center">
-            OR
-        </div>
-        <div style="margin:10px;">
-            <div style="margin:10px;">
-                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name", autocomplete = "off" })
-            </div>
-            <div style="margin:10px;">
-                @Html.TextBoxFor(m => m.EmailID, new { @class = "form-control", placeholder = "Email", autocomplete = "off" })
-            </div>
-            <div style="margin:10px;">
-                @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Mobile", autocomplete = "off" })
-            </div>
-            <div style="width:99%; font-size:12px;" class="p-2">
-                <button class="main-btn" style="line-height:40px; padding:0 20px;">Sign Up</button>
-            </div>
-        </div>
-        <div style="font-size:11px; margin:-10px 10px 0px 12px" class="p-2">
-            By signing up, I am confirming I accept the <a target="blank" href="javascript:void(0)">Terms & Condition and Privacy Policy</a>
-        </div>
-        <div style="margin-top:30px;">
-            <div class="modal-footer bg-color-custom pt-2 pb-2">
-                <div style="text-align:center; width:100%">
-                    Already have an account? &nbsp;<a href="javascript:void(0)" onclick="signIn()" class="link-primary">Login</a>
+        <div class="p-4">
+            <div class="row" style="margin-top:-20px;">
+                <div class="col-md-12 p-2 ">
+                    <button style="width:100%; background-color:#1877f2;" class="main-btn">
+                        <i class="fa fa-facebook-official" style="color:white; font-size:20px;"></i> &nbsp;
+                        <span style="color:white">Login with Facebook</span>
+                    </button>
+                </div>
+                <div class="col-md-12 p-2">
+                    <button style="width:100%; background-color:#ea4335" class="main-btn">
+                        <i class="fa fa-google-plus-square" aria-hidden="true" style="color:white; font-size:20px;"></i> &nbsp;
+                        <span style="color:white">Login with Google</span>
+                    </button>
+                </div>
+                <div class="col-md-12 p-1" style="text-align:center">
+                    Or
+                </div>
+                <div class="col-md-6 p-2">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First Name", autocomplete = "off", MaxLength = "100" })
+                </div>
+                <div class="col-md-6 p-2">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last Name", autocomplete = "off", MaxLength = "100" })
+                </div>
+                <div class="col-md-12 p-2">
+                    @Html.TextBoxFor(m => m.EmailID, new { @class = "form-control", placeholder = "Email", autocomplete = "off", MaxLength = "100" })
+                </div>
+                <div class="col-md-12 p-2">
+                    @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", placeholder = "Mobile", autocomplete = "off", MaxLength = "10" })
+                </div>
+                <div class="col-md-12 p-2">
+                    <button class="main-btn" style="line-height:40px; padding:0 20px;">Sign Up</button>
+                </div>
+                <div class="col-md-12" style="font-size:11px;">
+                    By signing up, I am confirming I accept the <a target="blank" href="javascript:void(0)">Terms & Condition and Privacy Policy</a>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="modal-footer bg-color-custom pt-2 pb-2">
+            <div style="text-align:center; width:100%">
+                Already have an account? &nbsp;<a href="javascript:void(0)" onclick="signIn()" class="link-primary">Login</a>
+            </div>
+        </div>
     }
 </body>
 </html>
